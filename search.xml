@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>个人信息</title>
+    <url>/2023/10/04/22/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th align="center">姓名</th>
+<th align="center">年级</th>
+<th align="center">专业</th>
+<th align="center">学号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">郑宇丰</td>
+<td align="center">2020级</td>
+<td align="center">通信工程（物联网工程）</td>
+<td align="center">3120003767</td>
+</tr>
+</tbody></table>
+<p>项目经验：多功能的智能门锁系统</p>
+<p>项目经历：基于 stm32f103c8t6开发板设计多功能智能门锁系统，该系统由 OLED屏幕、AS608模块、矩阵按键模块、RFID-RCC522刷卡模块、ESP8266模块、舵机 SG90模块和蜂鸣器组成，可以实现指纹解锁、刷卡解锁、按键密码解锁、WIFI远程控制解锁等功能。</p>
+<p>主要内容：<br>（1）AS608指纹通过利用 stm32的 USART3与其通信，stm32发送命令包，指纹模块接收应答后与 stm32进行数据传输，从而控制舵机的开与关。<br>（2）刷卡模块通过利用 stm32的SPI1协议进行通信，stm32产生相应的时钟信号，数据通过 MOSI信号线发送到刷卡模块。刷卡模块发送数据给 stm32则是通过 MISO信号线，stm32收到数据后控制舵机的开与关。<br>（3）ESP8266模块通过利用 stm32的 USART2与其通信，对 ESP8266采用 station模式，在手机 app小程序发送相应的指令来实现远程控制舵机。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hexo博客部署</title>
+    <url>/2023/10/04/hexo/</url>
+    <content><![CDATA[<ol>
+<li>安装Node.js环境</li>
+</ol>
+<p>首先需要安装Node.js环境，可以到<a href="https://nodejs.org/">Node.js官网</a>下载安装，安装完成后检查版本号：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装Git</li>
+</ol>
+<p>接下来，需要安装Git，可以到<a href="https://git-scm.com/">Git官网</a>下载安装，安装完成后检查版本号：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>安装Hexo</li>
+</ol>
+<p>最后，安装Hexo：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，检查版本号：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>初始化Hexo</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;folder&gt;</code> 为博客文件夹的名称，比如可以为 <code>blog</code>，完成初始化后，可以看到博客文件夹中多出了很多文件。</p>
+<ol start="5">
+<li>部署Hexo博客</li>
+</ol>
+<p>部署之前，需要先在 <code>_config.yml</code> 中配置部署信息，比如可以使用GitHub Pages，具体可以参考<a href="https://hexo.io/zh-cn/docs/github-pages">Hexo官方文档</a>，示例如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">&lt;repository</span> <span class="string">url&gt;</span></span><br><span class="line">  <span class="attr">branch:</span> [<span class="string">branch</span>]</span><br></pre></td></tr></table></figure>
+
+<p>完成配置后，可以使用以下命令部署博客：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>完成部署后，可以到GitHub Pages查看博客，默认URL为：<code>https://&lt;username&gt;.github.io/&lt;project&gt;/</code>。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hexo部署后端管理平台</title>
+    <url>/2023/08/10/%E4%B8%BAHEXO%E9%83%A8%E7%BD%B2%E5%90%8E%E7%AB%AF%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%EF%BC%88Qexo%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="为Hexo部署后端的管理平台"><a href="#为Hexo部署后端的管理平台" class="headerlink" title="为Hexo部署后端的管理平台"></a>为Hexo部署后端的管理平台</h1><p><strong>Qexo</strong> 是一个快速、强大、美观的在线 <strong>静态博客编辑器</strong>。使用 GPL3.0 <strong>开源</strong>协议。支持包括且不限于在 <strong>Vercel</strong> 等平台部署, 为您的静态博客添加<strong>动态</strong>的元素。</p>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Qexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解放双手-自动化部署HEXO</title>
+    <url>/2023/08/10/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2HEXO/</url>
+    <content><![CDATA[<p>GitHub Actions自動化部署GitHub Pages</p>
+<p>第一次</p>
+<p>第二次测试</p>
+<p>….</p>
+<p>….</p>
+<p>……</p>
+<p>第四十三次测试终于成功！！！</p>
+]]></content>
+  </entry>
+</search>
